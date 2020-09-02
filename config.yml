@@ -1,0 +1,272 @@
+title: "Communicating using Markdown"
+description: "This course will walk you through everything you need to start organizing ideas and collaborating using Markdown, a lightweight language for text formatting."
+template:
+  name: "markdown-portfolio"
+  repo: "communicating-using-md-template"
+preferences:
+  - type: radio
+    name: gitTool
+    label: Preferred Git tool
+    description: You can follow this course's instructions using whichever Git tool you prefer.
+    options:
+      - label: GitHub.com
+        value: dotcom
+      - label: Command line
+        value: cli
+  - type: dropdown
+    name: language
+    label: Language
+    description: Choose your preferred language.
+    options:
+    - label: English
+      value: en
+    - label: Español
+      value: es
+tags: [
+  "GitHub","Markdown"
+]
+before:
+  - type: updateBranchProtection
+    branch: master
+    enforce_admins: true
+    required_pull_request_reviews:
+      include_admins: true
+  - type: createIssue
+    title: Getting Started with GitHub
+    body: "00_welcome.md"
+    comments:
+      - "00_create-tasklist.md"
+steps:
+  #1 - Create a task list
+  - title: "Create a task list"
+    description: "Learn about task lists in your first issue."
+    event: "issue_comment.created"
+    link: '{{ repoUrl }}/issues/1'
+    actions:
+      - type: gate
+        left: '(-|\*)\s+\[[x|X|\s]\]\s+.+'
+        operator: test
+        right: '%payload.comment.body%'
+        else:
+          - type: gate
+            left: '(-|\*)\s+\[[x|X|\s]+\]\s+.+'
+            operator: test
+            right: '%payload.comment.body%'
+            else:
+              - type: respond
+                with: '01_tasklist.md'
+          - type: respond
+            with: '01_taskwhitespaces.md'
+      - type: respond
+        with: '01_turn-on-ghp.md'
+
+  #2 - Turn on GitHub Pages
+  - title: "Turn on GitHub Pages"
+    description: "Create serve your repository contents on a web page using GitHub Pages."
+    event: page_build
+    link: '{{ repoUrl }}/settings'
+    actions:
+      - type: octokit
+        method: repos.getPages
+        owner: '%payload.repository.owner.login%'
+        repo: '%payload.repository.name%'
+        action_id: pagesUrl
+      - type: createPullRequest
+        action_id: pr
+        title: Give your portfolio a header
+        body: '02_headers.md'
+        head: add-headers
+        data:
+          thePayload: '%payload%'
+      - type: closeIssue
+        issue: Getting Started with GitHub
+      - type: octokit
+        method: repos.getPages
+        owner: '%payload.repository.owner.login%'
+        repo: '%payload.repository.name%'
+        action_id: pagesUrl
+      - type: respond
+        issue: Getting Started with GitHub
+        with: '02_close-issue.md'
+        data:
+          url: '%actions.pagesUrl.data.html_url%'
+          prUrl: '%actions.pr.data.html_url%'
+
+  #3 - Add headers
+  - title: "Add headers"
+    description: "Add headers to some unformatted content."
+    event: "pull_request.synchronize"
+    link: '{{ repoUrl }}/pull/2'
+    actions:
+      - type: getFileContents
+        action_id: fileContents
+        filename: '_includes/01-name.md'
+      - type: gate
+        left: '/^#{1,6}\s.+/gm'
+        operator: test
+        right: '%actions.fileContents%'
+        else:
+          type: respond
+          with: 03_request-changes.md
+      - type: removeBranchProtection
+      - type: respond
+        with: 03_pr-succeeds.md
+
+  #4 - Merge your headers
+  - title: "Merge your headers"
+    description: "Merge your first PR to see headers in action."
+    event: "pull_request.closed"
+    link: '{{ repoUrl }}/pull/2'
+    actions:
+      - type: gate
+        left: '%payload.pull_request.merged%'
+      - type: updateBranchProtection
+      - type: createPullRequest
+        action_id: pr
+        title: Introduce yourself to the world
+        body: 04_add-image.md
+        head: add-images-links
+      - type: octokit
+        method: repos.getPages
+        owner: '%payload.repository.owner.login%'
+        repo: '%payload.repository.name%'
+        action_id: pagesUrl
+      - type: respond
+        with: 04_next.md
+        data:
+          url: '%actions.pagesUrl.data.html_url%'
+          prUrl: '%actions.pr.data.html_url%'
+
+  #5 - Add an image
+  - title: "Add an image"
+    description: "Learn how to place images in Markdown by adding your photo."
+    event: "pull_request.synchronize"
+    link: '{{ repoUrl }}/pull/3'
+    actions:
+      - type: getFileContents
+        filename: '_includes/02-image.md'
+        action_id: fileContents
+      - type: gate
+        left: '/!\[.+\]\(.+\)/g'
+        operator: test
+        right: '%actions.fileContents%'
+        else:
+          type: respond
+          with: 05_request-changes-image.md
+      - type: respond
+        with: 05_image-works-url.md
+
+  #6 - Add a profile link
+  - title: "Add a profile link"
+    description: "Learn how to create links in Markdown."
+    event: "pull_request.synchronize"
+    link: '{{ repoUrl }}/pull/3'
+    actions:
+      - type: getFileContents
+        filename: '_includes/03-links.md'
+        action_id: fileContents
+      - type: gate
+        left: '/!?\[.+\]\(.+\)/g'
+        operator: test
+        right: '%actions.fileContents%'
+        else:
+          type: respond
+          with: 06_request-changes-link.md
+      - type: removeBranchProtection
+      - type: respond
+        with: 06_success.md
+
+    #7 - Merge your image and link
+  - title: "Merge your image and link"
+    description: "Merge your second PR to introduce yourself to the world."
+    event: "pull_request.closed"
+    link: '{{ repoUrl }}/pull/3'
+    actions:
+      - type: gate
+        left: '%payload.pull_request.merged%'
+      - type: updateBranchProtection
+      - type: createPullRequest
+        title: A few of your favorite things
+        body: 07_pr-body.md
+        action_id: pr
+        head: add-lists-emphasis
+      - type: octokit
+        method: repos.getPages
+        owner: '%payload.repository.owner.login%'
+        repo: '%payload.repository.name%'
+        action_id: pagesUrl
+      - type: respond
+        with: 07_next.md
+        data:
+          url: '%actions.pagesUrl.data.html_url%'
+          prUrl: '%actions.pr.data.html_url%'
+
+  #8 - Add a list
+  - title: "Add a list"
+    description: "Learn to how to create ordered and unordered lists."
+    event: "pull_request.synchronize"
+    link: '{{ repoUrl }}/pull/4'
+    actions:
+      - type: getFileContents
+        filename: '_includes/04-lists.md'
+        action_id: fileContents
+      - type: gate
+        left: '/(?:\d\.|\*|-)\s.+/gm'
+        operator: test
+        right: '%actions.fileContents%'
+        else:
+          type: respond
+          with: 08_request-changes.md
+      - type: respond
+        with: 08_emphasis.md
+
+  #9 - Use emphasis
+  - title: "Use emphasis"
+    description: "Use bold and italics to emphasize text."
+    event: "pull_request.synchronize"
+    link: '{{ repoUrl }}/pull/4'
+    actions:
+      - type: getFileContents
+        filename: '_includes/05-emphasis.md'
+        action_id: fileContents
+      - type: gate
+        left: '/([*|_]{1,2}).+\1/gm'
+        operator: test
+        right: '%actions.fileContents%'
+        else:
+          type: respond
+          with: 09_request-changes.md
+      - type: removeBranchProtection
+      - type: respond
+        with: 09_success.md
+
+  #10 - Merge lists and  emphasis
+  - title: "Merge lists and emphasis"
+    description: "Merge the last updates to your portfolio."
+    event: "pull_request.closed"
+    link: '{{ repoUrl }}/pull/4'
+    actions:
+      - type: gate
+        left: '%payload.pull_request.merged%'
+      - type: createIssue
+        title: More to learn
+        body: 10_more-to-learn.md
+        action_id: issue
+      - type: mergeBranch
+        head: add-theme
+      - type: octokit
+        method: repos.getPages
+        owner: '%payload.repository.owner.login%'
+        repo: '%payload.repository.name%'
+        action_id: pagesUrl
+      - type: respond
+        with: 10_next.md
+        data:
+          url: '%actions.pagesUrl.data.html_url%'
+          issueUrl: '%actions.issue.data.html_url%'
+      - type: octokit
+        method: repos.update
+        owner: '%payload.repository.owner.login%'
+        repo: '%payload.repository.name%'
+        name: '%payload.repository.name%'
+        homepage: 'https://%payload.repository.owner.login%.github.io/%payload.repository.name%'
