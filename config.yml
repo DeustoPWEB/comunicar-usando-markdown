@@ -1,8 +1,8 @@
 title: "Communicating using Markdown"
 description: "This course will walk you through everything you need to start organizing ideas and collaborating using Markdown, a lightweight language for text formatting."
 template:
-  name: "markdown-portfolio"
-  repo: "communicating-using-md-template"
+  name: "portafolio-markdown"
+  repo: "comunicar-usando-markdown-plantilla"
 preferences:
   - type: radio
     name: gitTool
