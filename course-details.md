@@ -1,30 +1,29 @@
-GitHub is about more than code. It’s a platform for software collaboration—and Markdown is one of the most important ways developers can make their communication clear and organized in issues and pull requests.
+GitHub es más que código. Es una plataforma para la colaboración en el desarrollo de software (y otros tipos de contenidos digitales)--y Markdown es uno de los recursos más importantes en los que la comunicación digital puede hacerse de manera organizada, concretamente en propuestas (o _issues_) y solicitudes de extracción (o _pull requests_).
 
-This course will walk you through creating and using headings more effectively, organizing thoughts in bulleted lists, and showing how much work you’ve completed with checklists. You can even use Markdown to add some depth to your work with the help of emoji, images, and links. See a word you don't understand? We've included an emoji 📖 next to some key terms. Click on it to see its definition.
+Este curso te enseñará a crear y usar encabezados de manera más efectiva, a organizar tus pensamientos en listas, y mostrar cúanto trabajo has completado a través de listas de tareas. Incluso puedes usar Markdown para añadir algo más de profundidad a tu trabajo mediante emojis, imágenes y enlaces. ¿Ves alguna palabra que no entiendes? Hemos incluido un emoji 📖 junto a algunos términos clave. Haz clic en él para ver su definición.
 
-## What you'll learn
 
-In this course, you’ll learn how to:
+## Qué aprenderás
 
-- Use Markdown to add lists, images, and links in a comment or text file
-- Determine where and how to use Markdown in a GitHub repository
+En este curso aprenderás cómo:
 
-## What you'll build
+- Usar Markdown para añadir listas, imágenes y enlaces en un comentario o archivo de texto
+- Determinar dónde y cómo usar Markdown en un repositorio de GitHub
+
+## Lo que vas a construir
 
 ![screen shot of published GitHub pages site](https://user-images.githubusercontent.com/9906718/75548040-897db800-5a2c-11ea-9636-80658fa3fc7e.png)
 
-- A published GitHub Pages site showcasing different types of Markdown that you can edit and use in the future
+- Un sitio publicado mediante GitHub Pages que muestra diferentes elementos de MArkdown y que puedes editar y usar en el futuro
 
-## Prerequisites
+## Prerrequisitos
 
-In this course you will work with issues and pull requests, as well as edit files. If these things aren't familiar to you, we recommend you take the [Introduction to GitHub]({{ host }}/githubtraining/introduction-to-github) course, first!
+En este curso harás uso de propuestas (o _issues_) y solicitudes de extracción (o _pull requests_), además de editar archivos. Si estas cosas no te resultan familiares, es recomendable que hagas primero el curso de [Introduction to GitHub]({{ host }}/DeustoPWEB/introduccion-a-github).
 
-## Projects used
+## Proyectos usados
+Este curso hace uso de los siguientes proyectos de código abierto. Considera explorar estos repositorios, ¡puede que incluso hacer alguna contribución!
 
-This makes use of the following open source projects. Consider exploring these repos and maybe even making contributions!
+- [Jekyll](https://github.com/jekyll/jekyll): un generador de sitios estáticos simple y optimizado para crear blogs.
 
-- [Jekyll](https://github.com/jekyll/jekyll): a simple, blog-aware, static site generator.
-
-## Audience
-
-Developers, GitHub users, users new to Git, students, managers, teams
+## Audiencia
+Nuevos usuarios de GitHub, usuarios que no conocen git, estudiantes...

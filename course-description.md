@@ -1,4 +1,4 @@
-# Communicating with Markdown
+# Comunicar usando Markdown
 
 This document contains the course flow for the "Communicating with Markdown" course.
 
