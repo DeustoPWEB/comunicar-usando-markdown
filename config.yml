@@ -1,7 +1,7 @@
 title: "Comunicar usando Markdown"
 description: "This course will walk you through everything you need to start organizing ideas and collaborating using Markdown, a lightweight language for text formatting."
 template:
-  name: "portafolio-markdown"
+  name: "comunicar-md"
   repo: "comunicar-usando-markdown-plantilla"
 preferences:
   - type: radio
@@ -9,6 +9,9 @@ preferences:
     label: Preferred Git tool
     description: You can follow this course's instructions using whichever Git tool you prefer.
     options:
+      - label: Use Visual Studio Code
+        value: vscode
+        selected: true
       - label: GitHub.com
         value: dotcom
       - label: Command line

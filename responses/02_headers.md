@@ -52,6 +52,26 @@ La barra de herramientas no está disponible en todas partes. Cuando editas un a
       ```shell
       git push
       ```
+{% elsif preferences.gitTool == 'vscode' %}
+1. Descarga y abre [Visual Studio Code](https://code.visualstudio.com/Download) (referido como VS Code) si aún no lo tienes.
+1. En VS Code, abre la Paleta de Comandos (o _Command Palette_) usando <kbd>Ctrl+Mayús+P</kbd> en Windows, o <kbd>Command ⌘+Mayús+P</kbd> en macOS. También puedes seguir [la documentación oficial de VS Code](https://code.visualstudio.com/docs/editor/versioncontrol#_cloning-a-repository) sobre clonar repositorios.
+1. Escribe `git clone`y presiona <kbd>Enter</kbd>
+      ![una captura de pantalla de VS Code con la Paleta de Comandos abierta](https://user-images.githubusercontent.com/16547949/53639288-bcf9ec80-3bf6-11e9-9d18-d97167168248.png)
+1. Pega la URL del repositorio en la nueva ventana y presiona <kbd>Enter</kbd>:
+      ```shell
+      {{ thePayload.repository.clone_url }}
+      ```
+1. Selecciona la ubicación en el que quieres guardar el repositorio y haz clic en **Choose folder**. Después, abre la ubicación que seleccionaste (haciendo clic en **Open**).  
+1. El directorio del repositiorio debería estar ahora abierto en tu proyecto de VS Code. Haz clic en `add-headers` en la parte inferior de la ventana de VS Code. Esto abrirá la Paleta de Comandos con todos los comandos relacionados a ramas de Git. 
+      ![una captura de pantalla de las ramas de Git en VS Code](https://user-images.githubusercontent.com/16547949/53639606-adc76e80-3bf7-11e9-98ac-bd41ae2b40db.png)
+1. En la ventana de edición, abre el archivo `01-name.md`, en el directorio `_includes`. En la primera línea, sustituye el texto con tu nombre y añade una `#` antes del contenido para convertirlo en un encabezado H1.
+2. Guarda el archivo.
+1. Para añadir tu nuevo archivo ve a la vista de Source Control y haz clic en el botón **+** a lado del archivo. También puedes seguir este paso con la [documentación oficial de VS Code](https://code.visualstudio.com/docs/editor/versioncontrol#_commit).
+      ![una captura del botón de staging en la vista Source  Control](https://user-images.githubusercontent.com/16547949/53641057-d5b8d100-3bfb-11e9-9b69-53b0661cd5cd.png)
+1. Haz una confirmación de cambios escribiendo un mensaje de confirmación en el campo de texto y después presionando<kbd>Ctrl+Enter</kbd> en Windows o <kbd>Comando ⌘+Enter</kbd> en macOS.
+      ![una captura del mensaje de confirmación de cambios VS Code](https://user-images.githubusercontent.com/16547949/53641276-698a9d00-3bfc-11e9-9b3d-01680fd01d7c.png)
+1. Haz clic en los puntos suspensivos (...) y selecciona **Pull, Push > Push**.```
+
 {% else %}
 1. En esta solicitud de extracción, haz clic en la pestaña **Files changed**.
 1. En el extremo superior derecho de la vista de archivo, haz clic en el icono de **lápiz** ✏️ del archivo titulado `_includes/01-name.md`.
