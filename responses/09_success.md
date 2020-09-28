@@ -1,29 +1,29 @@
-## Paso 10: Merge lists and emphasis
+## Paso 10: Combina las listas y los énfasis
 
-Nice list, @{{ user.username }}! You can merge this pull request when you're ready.
+¡Una lista genial, @{{ user.username }}! Puedes combinar la solicitud de extracción cuando hayas terminado.
 
-### :keyboard: Actividad: Merge the Pull Request
+### :keyboard: Actividad: Combina la solicitud de extracción
 
 {% if preferences.gitTool == 'cli' %}
-1. Check out to the `master` branch:
+1. Cámbiate a la rama `master`:
     ```shell
     git checkout master
     ```
-2. Merge your branch:
+2. Combina tu rama:
     ```shell
     git merge add-lists-emphasis
     ```
-3. Push the merged history to GitHub:
+3. Sube tu historial con la rama combinada a GitHub:
     ```shell
     git push
     ```
-4. Delete your the branch locally:
+4. Elimina tu rama local:
     ```shell
     git branch -d add-lists-emphasis
     ```
 {% else %}
-1. Click **Merge pull request** below.
+1. Haz clic en **Merge pull request** más abajo.
 {% endif %}
 
 <hr>
-<h3 align="center">Watch below for my response!</h3>
+<h3 align="center">¡Mira mi respuesta debajo!</h3>

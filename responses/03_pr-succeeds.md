@@ -1,29 +1,29 @@
-## Paso 4: Merge your headers
+## Paso 4: Combina tus encabezados
 
-I see you've added at least one header, @{{ user.username }}. You can continue working if you'd like, otherwise let's merge <sup>[:book:](https://help.github.com/articles/github-glossary/#merge)</sup> this pull request and move on with the course.
+Veo que has añadido al menos un encabezado, @{{ user.username }}. Puedes continuar trabajando si quieres; de lo contrario, vamos a combinar (o _merge_) <sup>[:book:](https://help.github.com/articles/github-glossary/#merge)</sup> esta solicitud de extracción para continuar con el curso.
 
-### :keyboard: Actividad: Merge the Pull Request
+### :keyboard: Actividad: Combina la solicitud de extracción
 
 {% if preferences.gitTool == 'cli' %}
-1. Check out to the `master` branch:
+1. Cámbiate a la rama `master`:
     ```shell
     git checkout master
     ```
-2. Merge your branch:
+2. Combina tu rama:
     ```shell
     git merge add-headers
     ```
-3. Push the merged history to GitHub:
+3. Sube tu historial con la rama combinada a GitHub:
     ```shell
     git push
     ```
-4. Delete your the branch locally:
+4. Elimina tu rama local:
     ```shell
     git branch -d add-headers
     ```
 {% else %}
-1. Click **Merge pull request** below.
+1. Haz clic en **Merge pull request** más abajo.
 {% endif %}
 
 <hr>
-<h3 align="center">Watch below for my response!</h3>
+<h3 align="center">¡Mira mi respuesta aquí debajo!</h3>

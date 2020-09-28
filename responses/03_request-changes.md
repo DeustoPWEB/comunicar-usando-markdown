@@ -1,44 +1,44 @@
-You've made a change to this file, but I don't see a header yet. Add another commit with a header. You can continue to make commits on a branch even after you open a pull request.
+Has realizado algún cambio a este archivo, pero no veo ningún encabezado. Añade otra confirmación de cambios (o _commit_) con un encabezado en el archivo. Puedes seguir añadiendo y confirmando cambios en una rama incluso después de iniciar una solicitud de extracción.
 
-### :keyboard: Actividad: Add a header
+### :keyboard: Actividad: Añade un encabezado
 
 {% if preferences.gitTool == 'cli' %}
-1. Open your preferred command line interface, which we'll call your shell from now on.
-1. Clone this repository:
+1. Abre tu interfaz de línea de comandos favorita, a la que llamaremos shell a partir de ahora.
+1. Clona este repositorio:
       ```shell
       git clone {{ thePayload.repository.clone_url }}
       ```
-1. Navigate to the repository in your shell:
+1. Navega al repositorio en tu shell:
       ```shell
       cd {{ thePayload.repository.name }}
       ```
-1. Checkout to the branch in this pull request:
+1. Cambia a la rama de esta solicitud de extracción:
       ```shell
       git checkout add-headers
       ```
-1. In your text editor of choice, open the file called `01-name.md`, in the `_includes` directory. On the first line, replace the text with your name, and add a `#` before the content to make it an H1 Header.
-1. Save your file.
-1. Stage your file:
+1. En tu editor de textos, abre el archivo `01-name.md`, en el directorio `_includes`. En la priemra línea, sustituye el texto con tu nombre y añade una `#` antes del contenido para convertirlo en un encabezado H1.
+1. Guarda el archivo.
+1. Añade el archivo como preparado para confirmar:
       ```shell
       git add _includes/01-name.md
       ```
-1. Commit the change and add a commit message:
+1. Confirma el cambio y añade un mensaje de confirmación:
       ```shell
-      git commit -m "<YOUR MESSAGE>"
+      git commit -m "<TU MENSAJE>"
       ```
-1. Push your new commit to GitHub:
+1. Sube tus nuevos cambios confirmados a GitHub:
       ```shell
       git push
       ```
 {% else %}
-1. Click the "Files changed" tab.
-1. Scroll to find the `_includes/01-name.md`.
-1. Click the :pencil: pencil icon.
-1. Add a header by including a `#` hash followed by a space.
-1. Scroll to the bottom and commit your changes to your branch.
+1. Haz clic en la pestaña "Files changed".
+1. Haz scroll para buscar el archivo `_includes/01-name.md`.
+1. Haz clic en el icono del :pencil: lápiz.
+1. Añade un encabezado tecleando `#` seguido de un espacio.
+1. Haz scroll a la parte inferior y confirma tus cambios en la rama.
 {% endif %}
 
-If you would like assistance troubleshooting, create a post on the [GitHub Community]({{ communityBoard }}) board. You might also want to search for your issue to see if other people have resolved it in the past.
+Si necesitas ayuda para resolver algún problema, crea un post en el tablón de [GitHub Community]({{ communityBoard }}). Puede que también quieras realizar una búsqueda para ver si alguien ha resuelto algún problema como el tuyo anteriormente.
 
 <hr>
-<h3 align="center">Watch below for my response!</h3>
+<h3 align="center">¡Mira debajo para ver mi respuesta!</h3>

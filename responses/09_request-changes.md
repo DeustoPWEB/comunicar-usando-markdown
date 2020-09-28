@@ -1,39 +1,39 @@
-:thinking: I don't see any text with emphasis yet. To complete this exercise, you need to add some emphasized text to the `_includes/05-emphasis.md` file, in the form of a *bold* or _italicized_ words.
+:thinking: No veo ningún texto con énfasis todavía. Para completar este ejercicio, necesitas añadir algún texto con énfasis al archivo `_includes/05-emphasis.md`, en forma de palabras en **negrita** o _cursiva_.
 
-### :keyboard: Actividad: Add emphasis
+### :keyboard: Actividad: Añade énfasis
 
 {% if preferences.gitTool == 'cli' %}
-1. In your shell, verify that you are currently checked out to the branch `add-lists-emphasis`:
+1. En tu shell, asegúrate de que estás en la rama `add-lists-emphasis`:
       ```shell
       git status
       ```
-1. If you are _not_, then checkout to that branch:
+1. Si _no_ lo estás, entonces cámbiate a esa rama:
       ```shell
       git checkout add-lists-emphasis
       ```
-1. In your text editor of choice, open the file called `05-emphasis.md`, in the `_includes` directory. Add some information on your skills, including emphasis (like bold or italics).
-1. Save your file.
-1. Stage your new file:
+1. En tu editor de textos, abre el archivo `05-emphasis.md`, en el directorio `_includes`. Añade alguna información sobre tus habilidades, incluyendo énfasis (como negritas o cursivas).
+1. Guarda el archivo.
+1. Añade tu archivo nuevo como preparado para confirmar:
       ```shell
       git add _includes/05-emphasis.md
       ```
-1. Commit the change and add a commit message:
+1. Confirma el cambio y añade un mensaje de confirmación:
       ```shell
-      git commit -m "<YOUR MESSAGE>"
+      git commit -m "<TU MENSAJE>"
       ```
-1. Push your new commit to GitHub:
+1. Sube tus nuevos cambios confirmados a GitHub:
       ```shell
       git push
       ```
 {% else %}
-1. Click the "Files changed" tab.
-1. Scroll to find the `_includes/05-emphasis.md`.
-1. Click the :pencil: pencil icon.
-1. Add emphasis using `**` for **bold** or `_` for _italics_ (emphasis should not have a space between the markdown and the word to be modified).
-1. Scroll to the bottom and commit your changes to your branch.
+1. Haz clic en la pestaña "Files changed".
+1. Haz scroll para localizar el archivo `_includes/05-emphasis.md`.
+1. Haz clic en el icono del :pencil: lápiz.
+1. Añade énfasis utilizando `**` para **negrita** o `_` para _cursiva_ (aquí no debería haber un espacio entre los caracteres de Markdown y la palabra que quieres enfatizar).
+1. Haz scroll a la parte inferior y confirma los cambios a tu rama.
 {% endif %}
 
-If you would like assistance troubleshooting, create a post on the [GitHub Community]({{ communityBoard }}) board. You might also want to search for your issue to see if other people have resolved it in the past.
+Si necesitas ayuda para resolver algún problema, crea un post en el tablón de [GitHub Community]({{ communityBoard }}). Puede que también quieras realizar una búsqueda para ver si alguien ha resuelto algún problema como el tuyo anteriormente.
 
 <hr>
-<h3 align="center">Watch below for my response!</h3>
+<h3 align="center">¡Mira mi respuesta debajo!</h3>
